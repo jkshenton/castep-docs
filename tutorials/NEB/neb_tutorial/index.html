@@ -13,7 +13,7 @@
     
     
       
-        <title>Metals - CASTEP Docs</title>
+        <title>Nudged elastic band - CASTEP Docs</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aluminium" class="md-skip">
+        <a href="#nudged-elastic-band-tutorial" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Metals
+              Nudged elastic band
             
           </span>
         </div>
@@ -1282,14 +1282,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
       
       
       
@@ -1312,7 +1310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plotting_perl/" class="md-nav__link">
+      <a href="../../Bands_and_DOS/plotting_perl/" class="md-nav__link">
         Plotting - CASTEP tools
       </a>
     </li>
@@ -1326,7 +1324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plotting_sumo/" class="md-nav__link">
+      <a href="../../Bands_and_DOS/plotting_sumo/" class="md-nav__link">
         Plotting - SUMO
       </a>
     </li>
@@ -1340,7 +1338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../semiconductors/" class="md-nav__link">
+      <a href="../../Bands_and_DOS/semiconductors/" class="md-nav__link">
         Semiconductors
       </a>
     </li>
@@ -1352,55 +1350,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Metals
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Bands_and_DOS/metals/" class="md-nav__link">
         Metals
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#aluminium" class="md-nav__link">
-    Aluminium
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#copper" class="md-nav__link">
-    Copper
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1412,7 +1366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../magnetic/" class="md-nav__link">
+      <a href="../../Bands_and_DOS/magnetic/" class="md-nav__link">
         Magnetic Materials
       </a>
     </li>
@@ -1445,11 +1399,161 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../NEB/neb_tutorial/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Nudged elastic band
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Nudged elastic band
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview-and-background" class="md-nav__link">
+    Overview and background
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#files" class="md-nav__link">
+    Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-the-structures" class="md-nav__link">
+    Setting up the structures
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting up the structures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-initial-and-final-states" class="md-nav__link">
+    Setting up the initial and final states
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-transition-state-guess" class="md-nav__link">
+    Setting up the transition state guess
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-many-images-do-i-need" class="md-nav__link">
+    How many images do I need?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    Constraints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-i-need-climbing-neb" class="md-nav__link">
+    Do I need climbing NEB?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-neb" class="md-nav__link">
+    Running the NEB
+  </a>
+  
+    <nav class="md-nav" aria-label="Running the NEB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parallelisation" class="md-nav__link">
+    Parallelisation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-the-calculation-converging" class="md-nav__link">
+    Is the calculation converging?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restarting" class="md-nav__link">
+    Restarting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    Analysis
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zero-point-energy-corrections" class="md-nav__link">
+    Zero-point energy corrections
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1492,6 +1596,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1500,16 +1606,118 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#aluminium" class="md-nav__link">
-    Aluminium
+  <a href="#overview-and-background" class="md-nav__link">
+    Overview and background
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#copper" class="md-nav__link">
-    Copper
+  <a href="#files" class="md-nav__link">
+    Files
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-the-structures" class="md-nav__link">
+    Setting up the structures
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting up the structures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-initial-and-final-states" class="md-nav__link">
+    Setting up the initial and final states
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-transition-state-guess" class="md-nav__link">
+    Setting up the transition state guess
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-many-images-do-i-need" class="md-nav__link">
+    How many images do I need?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    Constraints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-i-need-climbing-neb" class="md-nav__link">
+    Do I need climbing NEB?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-neb" class="md-nav__link">
+    Running the NEB
+  </a>
+  
+    <nav class="md-nav" aria-label="Running the NEB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parallelisation" class="md-nav__link">
+    Parallelisation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-the-calculation-converging" class="md-nav__link">
+    Is the calculation converging?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restarting" class="md-nav__link">
+    Restarting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    Analysis
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zero-point-energy-corrections" class="md-nav__link">
+    Zero-point energy corrections
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1527,82 +1735,203 @@
                 
 
 
-  <h1>Metals</h1>
-
-<p>Here we use CASTEP to calculate the bandstructure of two typical metals. The cell and param files are very similar to the semiconductor examples - the one difference is that we use a finer sampling of the Brillouin Zone with the keyword <code>kpoint_mp_grid</code>. A finer sampling is needed to correctly represent the change in occupancy at the Fermi energy.</p>
-<h2 id="aluminium">Aluminium</h2>
-<div class="highlight"><pre><span></span><code>! Al.cell
-%BLOCK LATTICE_ABC
-2.86 2.86 2.86
-60 60 60
-%ENDBLOCK LATTICE_ABC
-
-%BLOCK POSITIONS_ABS
-Al     0   0   0
-%ENDBLOCK POSITIONS_ABS
-
-kpoint_mp_grid 12 12 12
-
-%block spectral_kpoint_path
-0.5 0.25 0.75    ! W
-0.5 0.5 0.5      ! L
-0.0 0.0  0.0     ! Gamma
-0.5 0.0 0.5      ! X
-0.5 0.25 0.75    ! W
-0.375 0.375 0.75 ! K
-%endblock spectral_kpoint_path
-
-symmetry_generate
+<h1 id="nudged-elastic-band-tutorial">Nudged elastic band tutorial</h1>
+<h2 id="overview-and-background">Overview and background</h2>
+<p>The nudged elastic band (NEB) approach is a widely-used method for finding a minimum energy pathway between two configurations of atoms. 
+You can use the method to estimate the barrier for the system to transition between the two structures. </p>
+<p>The technique starts with two fixed end points which are fully relaxed (local) minima: the initial and final configurations. It then connects these end points with a series of "images" via fictitious springs that "pull" the structures taught over one or more intermediate transition states. </p>
+<p>In this tutorial, we will use the well-known example of an ammonia molecule's <a href="https://en.wikipedia.org/wiki/Pyramidal_inversion#Energy_barrier">pyramidal inversion</a></p>
+<p><img alt="NH3 inversion diagram from wikipedia" src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Nitrogen-inversion-3D-balls.png" /></p>
+<p>We will cover:</p>
+<ul>
+<li>How to set up the initial, final (and intermediate) structures</li>
+<li>How to actually run the NEB calculation efficiently</li>
+<li>How to analyse the results</li>
+<li>Other tips and tricks</li>
+</ul>
+<h2 id="files">Files</h2>
+<p>You can find all the files needed for this tutorial here: <a href="../neb_tutorial.tar.gz">neb_tutorial.tar.gz</a></p>
+<h2 id="setting-up-the-structures">Setting up the structures</h2>
+<h3 id="setting-up-the-initial-and-final-states">Setting up the initial and final states</h3>
+<p>These and the local minima structures you want find the barrier between. They can be equivalent structures with e.g. a translation between them or they can be configurations with different energies (in which case your forward and reverse barriers will not be the same!). There are two crucial things to set up <strong>before running the NEB</strong> though:</p>
+<ol>
+<li>The end point structures must be fully relaxed (geometry optimised) before you start the NEB.</li>
+<li>The atoms must be in the correct order. A very common mistake is to use some third party tool to generate the final state from the initial state and end up with atoms that don't match the initial atom order. When CASTEP then goes to interpolate between the two structures, you end up with atoms "passing through each other", causing the calculation to blow up. Always check that the atoms connect up in the way you expect. </li>
+</ol>
+<p>The initial state is specified in the same way as the normal ionic positions in a .cell file. e.g.:</p>
+<div class="highlight"><pre><span></span><code>%BLOCK positions_frac
+   H              0.500011764912384       0.634846485697942       0.443086003907125
+   H              0.616593728396204       0.432553816946042       0.442828605918639
+   H              0.383248448613152       0.432623959245757       0.443068863520867
+   N              0.500000000000000       0.500000000000000       0.500000000000000
+%ENDBLOCK positions_frac
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>! Al.param
-task            spectral      ! The TASK keyword instructs CASTEP what to do
-spectral_task   bandstructure !
-xc_functional   LDA           ! Which exchange-correlation functional to use.
-cut_off_energy  500 eV        !
-opt_strategy    speed         ! Choose algorithms for best speed
+<p>The final state is specified using a similar block in the same .cell file but with <code>_product</code> appended to the name. e.g.:</p>
+<div class="highlight"><pre><span></span><code>%BLOCK positions_frac_product
+   H              0.500154169007758       0.634858887961251       0.556834437330747
+   H              0.616661280589956       0.432482046338754       0.556941161085851
+   H              0.383366127862304       0.432719065607707       0.557277918851780
+   N              0.500000000000000       0.500000000000000       0.500000000000000
+%ENDBLOCK positions_frac_product
 </code></pre></div>
-<p><img alt="Aluminium bandstructure" src="../../../img/al-bands.png" /></p>
+<h3 id="setting-up-the-transition-state-guess">Setting up the transition state guess</h3>
+<p>CASTEP will linearly interpolate between the initial and final structures you provide to generate the first guess of the minimum energy pathway.
+This works well in many cases. However, if your minimum energy pathway is likely to contain e.g. a rotation of a (group of) atom(s) around a bond or something similar, then the linear path between initial and final configurations may be a bad starting guess. </p>
+<p>CASTEP allows you to provide <strong>one</strong> intermediate structure between the initial and final configurations in order to help get the NEB on the right track. You can use this to bias your results to one pathway over another, for example. To use this, simply add the position information for this intermediate configuration to the .cell file. e.g.:</p>
+<div class="highlight"><pre><span></span><code>%BLOCK POSITIONS_ABS_INTERMEDIATE
+ang
+N  3.500000  3.500000  3.500000
+H  3.500000  4.443968  3.500000
+H  4.316393  3.027626  3.500000
+H  2.683149  3.028701  3.501215
+%ENDBLOCK POSITIONS_ABS_INTERMEDIATE
+</code></pre></div>
+<h3 id="how-many-images-do-i-need">How many images do I need?</h3>
+<p>It depends... It's usually easier to start with a small number of images and increase if you need to. </p>
+<p>Using many (i.e. &gt; 15) will result in slow convergence, but may lead to a more accurate minimum energy pathway. </p>
+<p>Using too few (i.e. &lt; 5) might fail to find the minimum energy pathway. </p>
+<p>Some questions to help answer how many images you need:</p>
+<ul>
+<li>How complex is the landscape between the initial and final state? For example, if you expect more than one maximum between the end points, you probably need more images than for the single peak example we look at here.</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Aluminium is a metal - there is no gap energy between the occupied and unoccupied states. The bands are close to parabolic (this is particularly noticeable around Gamma) - the electronic structure of aluminium closely follows a nearly-free electron model.</p>
+<p>The number of images is the number of structures between the end points. The total number of structures in the path (i.e. including the end points) will therefore be the number of images + 2.</p>
 </div>
-<h2 id="copper">Copper</h2>
-<div class="highlight"><pre><span></span><code>! Cu.cell
-%BLOCK LATTICE_ABC
-2.55 2.55 2.55
-60 60 60
-%ENDBLOCK LATTICE_ABC
-
-%BLOCK POSITIONS_ABS
-Cu     0   0   0
-%ENDBLOCK POSITIONS_ABS
-
-kpoint_mp_grid 12 12 12
-
-%block spectral_kpoint_path
-0.5 0.25 0.75    ! W
-0.5 0.5 0.5      ! L
-0.0 0.0  0.0     ! Gamma
-0.5 0.0 0.5      ! X
-0.5 0.25 0.75    ! W
-0.375 0.375 0.75 ! K
-%endblock spectral_kpoint_path
-
-symmetry_generate
+<h3 id="constraints">Constraints</h3>
+<p>In many cases we can dramatically improve the efficiency of the transition state search by imposing some constraints on the ions. However, they must be used with care so as not to introduce artifacts. For example, when looking at NEB barriers for adsorbates on a surface slab, we can constrain the bottom slab layers, but probably want the top layer(s) unconstrained.</p>
+<p>In the ammonia case, clearly we can constrain the N atom in x, y and z without affecting the physical set up. We do this by adding the ionic_constraints block:</p>
+<div class="highlight"><pre><span></span><code>%BLOCK IONIC_CONSTRAINTS
+     1   N   1   1 0 0
+     2   N   1   0 1 0
+     3   N   1   0 0 1
+%ENDBLOCK IONIC_CONSTRAINTS
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>! Cu.param
-task            spectral      ! The TASK keyword instructs CASTEP what to do
-spectral_task   bandstructure !
-xc_functional   LDA           ! Which exchange-correlation functional to use.
-cut_off_energy  500 eV        !
-opt_strategy    speed         ! Choose algorithms for best speed at expense of memory.
-spectral_nbands 8             !
+<p>to the <code>nh3.cell</code> file.</p>
+<p>The NEB part of CASTEP should pick up on the imposed ionic constraint(s) and you'll see something like this:</p>
+<div class="highlight"><pre><span></span><code>  --- Initialising NEB constraints ---
+     Fixed            3  degrees of freedom
 </code></pre></div>
-<p><img alt="Copper bandstructure" src="../../../img/cu-bands.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Copper is a metal - there is no gap energy between the occupied and unoccupied states. The bandstructure of copper is typical for a transition metal - we have highly dispersive parabolic bands corresponding to the s electrons, these are crossed by 5 quite flat bands corresponding to more localised 3d electrons. In copper the 3d states are filled, and we see the flat bands lie below the Fermi level.</p>
+<p>in the <code>.castep</code> output file.</p>
+<h3 id="do-i-need-climbing-neb">Do I need climbing NEB?</h3>
+<p>The climbing NEB method modifies the force on the highest-energy image (usually close to the middle of the band) such that it tries to climb <em>up</em> the barrier. 
+This is very useful to get accurate barrier estimates, but care must be taken when more complex pathways (i.e. with multiple maxima) are found.</p>
+<p>In our example the path is quite straightforward and it makes sense to use the climbing image method. We therefore set:</p>
+<p><code>TSSEARCH_NEB_CLIMBING: TRUE</code></p>
+<p>in the .param file.</p>
+<h2 id="running-the-neb">Running the NEB</h2>
+<h3 id="parallelisation">Parallelisation</h3>
+<p>Because the NEB calculation essentially runs N parallel CASTEP calculations (where N is the number of images), we can make very efficient use of the high-performance computers. The way to do this is via "task farming". The idea is to first parallelise the NEB calculation over the N images evenly and only then to employ other forms of parallelisation (e.g. over k-point and bands) within each image. </p>
+<p>For example, if one CASTEP calculation fits on one node, and you have 7 images, then you could run on a total of 7 nodes and set the keywords:</p>
+<p><code>NUM_FARMS: 7</code></p>
+<p>in the .param file. </p>
+<p>In general, setting <code>NUM_FARMS</code> to the number of NEB images will lead to good performance, provided the available computing resources can be split neatly by this number.</p>
+<p>You will notice that if you enable task farming, the seedname.castep output file will look relatively empty. Instead, the main output is split into the different task farm .castep files. The first indexed one contains the most important information (for example that's where you would grep for "Max NEB force") and will be called e.g. <code>seedname_farm001.castep</code>. </p>
+<h3 id="is-the-calculation-converging">Is the calculation converging?</h3>
+<p>You can monitor the convergence by grepping for "Max NEB force" within the .castep output file.</p>
+<p>Common convergence issues include:</p>
+<ul>
+<li>Not having consistent order in the initial and final structures -&gt; non-physical initial path</li>
+<li>Too many (or too few) images</li>
+</ul>
+<h3 id="restarting">Restarting</h3>
+<p>Sometimes the calculation will run out of time/number of iterations before the NEB calculation is finished. 
+You will probably see a "Failed to converge" message in the .castep output in that case; always read through your output files!</p>
+<p>If you simply re-run the calculation without changing anything, it will simply start from the beginning again -- probably not what you want!</p>
+<p>In order restart the NEB from the last checkpointed state, you need to <strong>explicitly</strong> set the name of the .check file you want to continue from. In our example that would be:</p>
+<div class="highlight"><pre><span></span><code>continuation: nh3.check
+</code></pre></div>
+<p>In the .castep output you would then see this message: <code>Coordinates of NEB images loaded from checkpoint file</code>. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unlike other parts of CASTEP, setting <code>continuation: default</code> does not seem to work for continuing/restarting NEB calculations! You must explicitly set the name of checkpoint file.</p>
 </div>
+<h2 id="analysis">Analysis</h2>
+<p>Once you have a converged NEB, you can use the provided Python utility: readTS to parse and analyse the NEB. 
+You first need to make sure the readTS module is on your PYTHONPATH. You can do this by going to your CASTEP source directory, and in <code>castep/Utilities/readts</code> you will find a setup.py script. Running <code>python setup.py</code> should install the module to your path. You can also manually add it by: </p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;/path/to/castep/Utilities/readts:</span><span class="nv">$PYTHONPATH</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>(changing the <code>/path/to/castep/</code> bit to wherever CASTEP is on your machine!).</p>
+<p>You can then extract the NEB path using something like this python code:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">## get this by adding castep/Utilities/readts to your PYTHONPATH</span>
+<span class="kn">from</span> <span class="nn">readts</span> <span class="kn">import</span> <span class="n">TSFile</span> 
+<span class="kn">from</span> <span class="nn">ase.neb</span> <span class="kn">import</span> <span class="n">NEBTools</span>
+
+
+<span class="k">def</span> <span class="nf">get_images</span><span class="p">(</span><span class="n">tsfile</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">   Function to extract the </span>
+<span class="sd">   final NEB images from a tsfile object</span>
+
+<span class="sd">   Args: </span>
+<span class="sd">        tsfile (TSFile): tsfile object</span>
+
+<span class="sd">   Returns:</span>
+<span class="sd">        images (list): list of ASE atoms objects</span>
+<span class="sd">   &#39;&#39;&#39;</span>
+    <span class="n">diam_tst</span> <span class="o">=</span> <span class="n">tsfile</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="s1">&#39;TST&#39;</span><span class="p">]</span>
+
+    <span class="n">diam_i</span> <span class="o">=</span> <span class="n">tsfile</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="s1">&#39;REA&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">diam_f</span> <span class="o">=</span> <span class="n">tsfile</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="s1">&#39;PRO&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">nbeads</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">diam_tst</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">max_idx</span> <span class="o">=</span> <span class="n">diam_tst</span><span class="o">.</span><span class="n">last_index</span>
+    <span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">diam_i</span><span class="o">.</span><span class="n">atoms</span><span class="p">]</span>
+    <span class="n">images</span> <span class="o">+=</span> <span class="p">[</span><span class="n">diam_tst</span><span class="p">[</span><span class="n">max_idx</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">atoms</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nbeads</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">diam_f</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">images</span>
+
+<span class="k">def</span> <span class="nf">plot_band</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;neb.png&#39;</span><span class="p">):</span>
+    <span class="n">nt</span> <span class="o">=</span> <span class="n">NEBTools</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+    <span class="n">energies</span> <span class="o">=</span> <span class="n">nt</span><span class="o">.</span><span class="n">get_barrier</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Barrier height:      </span><span class="si">{</span><span class="n">energies</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">16.5f</span><span class="si">}</span><span class="s1"> eV&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;E_final - E_initial: </span><span class="si">{</span><span class="n">energies</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">16.5f</span><span class="si">}</span><span class="s1"> eV&#39;</span><span class="p">)</span>
+    <span class="n">nebplot</span> <span class="o">=</span> <span class="n">nt</span><span class="o">.</span><span class="n">plot_band</span><span class="p">()</span>
+    <span class="n">nebplot</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">sys</span>
+    <span class="n">seedname</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;./&#39;</span>
+    <span class="n">tolerant</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">tolerant</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">tsfile</span> <span class="o">=</span> <span class="n">TSFile</span><span class="p">(</span><span class="n">seedname</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">tolerant</span><span class="o">=</span><span class="n">tolerant</span><span class="p">)</span>
+    <span class="n">images</span> <span class="o">=</span> <span class="n">get_images</span><span class="p">(</span><span class="n">tsfile</span><span class="p">)</span>
+    <span class="n">plot_band</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+
+    <span class="c1"># we can use ASE to write out the structure </span>
+    <span class="c1"># in whatever format we want</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Image</span><span class="se">\t\t</span><span class="s1"> Energy (eV)&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">atoms</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s1">03d</span><span class="si">}</span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">atoms</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span><span class="si">:</span><span class="s1">16.5f</span><span class="si">}</span><span class="s1"> eV&#39;</span><span class="p">)</span>
+        <span class="c1">## this format includes the energy of the image</span>
+        <span class="n">atoms</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;image-</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s1">03d</span><span class="si">}</span><span class="s1">.xyz&#39;</span><span class="p">)</span> 
+
+
+    <span class="c1">## We can also use the ASE GUI to </span>
+    <span class="c1">## view the images and analyse the NEB path.</span>
+    <span class="c1">## Select Tools -&gt; NEB Plot</span>
+    <span class="c1"># from ase.visualize import view</span>
+    <span class="c1"># view(images)</span>
+</code></pre></div>
+<p>If we save this script as analysis.py and run it in the directory containing both the nh3.cell and nh3.ts files like this:</p>
+<div class="highlight"><pre><span></span><code>python analysis.py nh3
+</code></pre></div>
+<p>we will get an .xyz file for each structure in the optimised NEB path and the energy of each image. We will also get the barrier estimate and a NEB plot showing the barrier.</p>
+<p>The ASE GUI can also be used to plot the NEB band (uncomment the last two lines in the above script and Select Tools → NEB Plot from the GUI). </p>
+<p>The ASE-generated plot looks like this:</p>
+<p><img alt="NEB Plot" src="../../../img/neb.png" /></p>
+<p>The barrier we obtained is about 0.23 eV, which compares well with the value of 0.25 eV (24.2 kJ/mol) <a href="https://en.wikipedia.org/wiki/Pyramidal_inversion#Energy_barrier">from Wikipedia</a>.</p>
+<p>We might also notice the slight difference in energy between the two end-points of the path (about 1 meV). These should be identical, so any difference can be used as a very rough guide for the amount of numerical noise in the geometry optimisations.</p>
+<p>Using our favourite visualisation software, we can then look at how the structure evolves along the minimum energy pathway found via the NEB.</p>
+<p><img alt="NEB structures" src="../../../img/nh3_neb.gif" /></p>
+<h3 id="zero-point-energy-corrections">Zero-point energy corrections</h3>
+<p>In many cases, particularly when lighter atoms are involved, the energy barrier estimates obtained above need to be corrected for quantum-nuclear effects. </p>
+<p>The simplest way to do this is in the harmonic approximation. You need to estimate the harmonic zero-point energy at the start, transition and final configurations.</p>
+<p>For the particular case (ammonia) we have been looking at, it turns out to actually explain the observed transition rate between the two 'umbrella' configurations, we need to go beyond the harmonic approximation. [REF]</p>
+<p>TODO: add instructions for harmonic ZPE corrections.</p>
 
               
             </article>
@@ -1616,7 +1945,7 @@ spectral_nbands 8             !
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../semiconductors/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Semiconductors" rel="prev">
+        <a href="../../dispersion_corrections/castep-ase-dispersion-tutorial/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Dispersion corrections" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1625,26 +1954,11 @@ spectral_nbands 8             !
               <span class="md-footer__direction">
                 Previous
               </span>
-              Semiconductors
+              Dispersion corrections
             </div>
           </div>
         </a>
       
-      
-        
-        <a href="../magnetic/" class="md-footer__link md-footer__link--next" aria-label="Next: Magnetic Materials" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Magnetic Materials
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
