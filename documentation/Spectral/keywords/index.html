@@ -1475,16 +1475,16 @@
 <li><code>coreloss</code> dipole matrix elements with core states    </li>
 </ul>
 <p>Most spectral calculations will involve the calculation of unoccupied states. One of the following parameters should be set to determine the number of states calculated.</p>
-<div class="highlight"><pre><span></span><code>SPECTRAL_NEXTRA_BANDS            number of extra spectral bands
-SPECTRAL_PERC_EXTRA_BANDS        percentage of extra spectral bands
-SPECTRAL_NBANDS                  number of bands/k-point in spectral calc
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>SPECTRAL_NEXTRA_BANDS            number of extra spectral bands
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>SPECTRAL_PERC_EXTRA_BANDS        percentage of extra spectral bands
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>SPECTRAL_NBANDS                  number of bands/k-point in spectral calc
 </code></pre></div>
 <p>It is possible to use a different exchange-correlation functional to the one used for the groundstate. An example might be when a semi-local functional (such as PBE) is used for the groundstate, and a more expensive non-local functional (e.g. PBE0) is used for the spectral calculation. This is an approximation and should be done with cuation. To set the xc functional use one of the two keywords.</p>
-<div class="highlight"><pre><span></span><code>SPECTRAL_XC_FUNCTIONAL           spectral exchange-correlation functional
-SPECTRAL_XC_DEFINITION           spectral exchange-correlation functional
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>SPECTRAL_XC_FUNCTIONAL           spectral exchange-correlation functional
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>SPECTRAL_XC_DEFINITION           spectral exchange-correlation functional
 </code></pre></div>
 <p>To change the convergence tolerance for the eigenvalues set
-<div class="highlight"><pre><span></span><code>SPECTRAL_EIGENVALUE_TOL          ! default: 10E-6 eV
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>SPECTRAL_EIGENVALUE_TOL          ! default: 10E-6 eV
 </code></pre></div></p>
 <p>SPECTRAL_MAX_ITER                maximum iterations in spectral calculation
 SPECTRAL_MAX_STEPS_PER_ITER      maximum steps per iter in spectral calculation</p>
@@ -1553,7 +1553,7 @@ SPECTRAL_MAX_STEPS_PER_ITER      maximum steps per iter in spectral calculation<
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": "-content.code.annotate", "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.3a4b43e5.min.js"></script>

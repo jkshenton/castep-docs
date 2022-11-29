@@ -1468,14 +1468,14 @@
 
 <p>One of the most fundamental tasks for CASTEP is to take a crystal lattice and set of atomic positions, and compute the electronic density and total energy.</p>
 <p>Once the <a href="/documentation/Getting_Started/basic_cell_file">lattice and atomic positions</a> have been specified, you can tell CASTEP to compute the energy by setting the task keyword in <a href="/documentation/Getting_Started/basic_param_file">the param file</a>:</p>
-<div class="highlight"><pre><span></span><code>task : energy
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>task : energy
 </code></pre></div>
 <p>Your cell and param files should be named using the same prefix, which CASTEP calls the "seedname", and the extensions <code>.cell</code> and <code>.param</code>, respectively. For example, for a calculation called <code>mytest</code>, you need the input files
-<div class="highlight"><pre><span></span><code>mytest.cell
-mytest.param
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mytest.cell
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>mytest.param
 </code></pre></div>
 and the calculation is run with the command
-<div class="highlight"><pre><span></span><code>castep mytest
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>castep mytest
 </code></pre></div></p>
 <p>CASTEP computes the energy by solving the Kohn-Sham equations iteratively, using the 'self-consistent field' (SCF) method.</p>
 
@@ -1543,7 +1543,7 @@ and the calculation is run with the command
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": "-content.code.annotate", "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.3a4b43e5.min.js"></script>

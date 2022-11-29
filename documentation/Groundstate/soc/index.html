@@ -1531,16 +1531,16 @@
 
 <h2 id="keywords">keywords</h2>
 <p>For a calculation of a non-spin polarised system with spin orbit coupling (e.g. GaAs) the following keywords should be set in the param file</p>
-<div class="highlight"><pre><span></span><code>spin_treatment          : vector
-spin_orbit_coupling     : true
-spin_polarised          : false
-relativistic_treatment  : dirac
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>spin_treatment          : vector
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>spin_orbit_coupling     : true
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>spin_polarised          : false
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>relativistic_treatment  : dirac
 </code></pre></div>
 <p>If the system has a spin density (e.g. a ferromagnet or antiferromagnet) then the following keywords should be set in the para file</p>
-<div class="highlight"><pre><span></span><code>spin_treatment          : vector
-spin_orbit_coupling     : true
-spin_polarised          : true
-relativistic_treatment  : dirac
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>spin_treatment          : vector
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>spin_orbit_coupling     : true
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>spin_polarised          : true
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>relativistic_treatment  : dirac
 </code></pre></div>
 <p>As the spin-orbit coupling is transmitted via the pseudopotential is is necessary to use j-dependent pseudopotentials. These can be read from file (UPF or uspso) or generated on the fly. At the moment the SOC19 set of OTFG norm-conserving potentials are suitable. These can be specified with the following block in the cell file
 ```
@@ -1613,7 +1613,7 @@ SOC19
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": "-content.code.annotate", "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.3a4b43e5.min.js"></script>

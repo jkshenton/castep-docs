@@ -1468,11 +1468,11 @@
 
 <p>In addition to Chris' OTFG document, some more description of the
 OTF string</p>
-<pre><code>2|3.1|4.0|2.2|2|3|5|50U3.4:60U3.1:51:52U3.1{6s1.45,5d0.05}(qc=3)[]
-</code></pre>
+<div class="highlight"><pre><span></span><code>2|3.1|4.0|2.2|2|3|5|50U3.4:60U3.1:51:52U3.1{6s1.45,5d0.05}(qc=3)[]
+</code></pre></div>
 <p>Quantities in &lt;&gt; are descriptions not literals.  All chars outside &lt;&gt;
 are literal</p>
-<pre><code>&lt;Local cpt&gt;|&lt;r_c(loc)&gt;|&lt;r_c(nonloc)&gt;|&lt;rinner/rcore&gt;|&lt;COARSE&gt;|&lt;MEDIUM&gt;|&lt;FINE&gt;|
+<div class="highlight"><pre><span></span><code>&lt;Local cpt&gt;|&lt;r_c(loc)&gt;|&lt;r_c(nonloc)&gt;|&lt;rinner/rcore&gt;|&lt;COARSE&gt;|&lt;MEDIUM&gt;|&lt;FINE&gt;|
 &lt;proj1&gt;:&lt;proj2&gt;...&lt;projn&gt;{&lt;config&gt;}(flags)[&lt;test config&gt;]
 
 Local cpt     :  0,1,2 for s,p,d
@@ -1482,11 +1482,11 @@ r_c(nl)       :  pseudisation radius for nonlocal components (atomic units)
 rinner/rcore  :  Pseudisation radius for augmentation functions and pseudo-core charge
 COARSE/MEDIUM/FINE : Recommended cutoff energies in atomic units (Hartree)
 projn         : Descriptions of projectors to include, separated by semicolons.
-</code></pre>
+</code></pre></div>
 <p>Syntax of a projector is in its briefest form</p>
-<pre><code> &lt;n&gt;&lt;l&gt;           where digits &lt;n&gt; and &lt;l&gt; denote the atomic quantum numbers eg 30 for 3s
-              In fact this is equivalent to the expanded form "&lt;n&gt;&lt;l&gt;UU" where the
-              projector flags "UU" mean include two ultrasoft beta projectors for
+<div class="highlight"><pre><span></span><code> &lt;n&gt;&lt;l&gt;           where digits &lt;n&gt; and &lt;l&gt; denote the atomic quantum numbers eg 30 for 3s
+              In fact this is equivalent to the expanded form &quot;&lt;n&gt;&lt;l&gt;UU&quot; where the
+              projector flags &quot;UU&quot; mean include two ultrasoft beta projectors for
               this channel.
 
  The full form is    
@@ -1505,8 +1505,8 @@ projn         : Descriptions of projectors to include, separated by semicolons.
 
     &lt;r_c&gt;    - the projector specific pseudisation radius.
     &lt;dE_use&gt; - the reference energy for the projector. A floating-point
-                value beginning with an explicit '=', '+' or '-' in Hartree.
-                '=E' means absolute energy, '+/-E' is relative to AE eigenvalue.
+                value beginning with an explicit &#39;=&#39;, &#39;+&#39; or &#39;-&#39; in Hartree.
+                &#39;=E&#39; means absolute energy, &#39;+/-E&#39; is relative to AE eigenvalue.
    &lt;shift&gt;  - Add this value to the projector, it shift it in energy.
 
      config        : Reference configuration used to generate pseudopotential
@@ -1521,7 +1521,7 @@ projn         : Descriptions of projectors to include, separated by semicolons.
  tm           Troullier-Martins pseudosation scheme
  pn           polynomial fit
  pb           bessel fit
- es           "extra soft" scheme
+ es           &quot;extra soft&quot; scheme
  esr=val      extra-soft with explicit specification of r_c
  nonlcc       Do not generate of unscreen with a pseudo-core charge.
  schro        Use non-relativistic schroedinger equation for AE calculation
@@ -1530,7 +1530,7 @@ projn         : Descriptions of projectors to include, separated by semicolons.
  scpsp        Generate a self-consistent pseudopotential
 
 test config   : Specify a non-default test configuration eg, [4s1.5,3d0.5].
-</code></pre>
+</code></pre></div>
 
               
             </article>
@@ -1596,7 +1596,7 @@ test config   : Specify a non-default test configuration eg, [4s1.5,3d0.5].
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": "-content.code.annotate", "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.3a4b43e5.min.js"></script>

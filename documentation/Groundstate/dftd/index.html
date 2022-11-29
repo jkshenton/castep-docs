@@ -1885,11 +1885,11 @@ Finally, the many-body correlated motion of electrons can be, to some extent, ca
 <li><code>Rvdw</code> (Å): Available for the OBS scheme.</li>
 </ul>
 <p>You set them like this:</p>
-<div class="highlight"><pre><span></span><code>%BLOCK SEDC_CUSTOM_PARAMS
-      ! example values for test purposes only - don&#39;t use these... !
-      He      C6:1.00      R0:2.00
-      Ne      C6:10.00     R0:4.00
-%ENDBLOCK SEDC_CUSTOM_PARAMS
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>%BLOCK SEDC_CUSTOM_PARAMS
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>      ! example values for test purposes only - don&#39;t use these... !
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>      He      C6:1.00      R0:2.00
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>      Ne      C6:10.00     R0:4.00
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>%ENDBLOCK SEDC_CUSTOM_PARAMS
 </code></pre></div>
 <h2 id="method-details-and-customisation">Method details and customisation</h2>
 <h4 id="tkatchenkoscheffler-schemes">Tkatchenko−Scheffler schemes</h4>
@@ -2017,8 +2017,8 @@ Finally, the many-body correlated motion of electrons can be, to some extent, ca
 <details class="warning">
 <summary>Compilation flags: for the D3 correction, CASTEP must be compiled with <code>GRIMMED3 := compile</code><a name="D3compilation"></a></summary>
 <p>Note that for the D3 correction to work, CASTEP must be compiled with the following flag:
-  <div class="highlight"><pre><span></span><code># Grimme D3 library support. Options are none or compile
-GRIMMED3 := compile
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># Grimme D3 library support. Options are none or compile
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>GRIMMED3 := compile
 </code></pre></div>
   in the <code>Makefile</code></p>
 <p>For CASTEP 20, the D3 library is included in the distribution and the setting the flag above should be sufficient. </p>
@@ -2028,9 +2028,9 @@ GRIMMED3 := compile
 A unified density-functional treatment of dynamical, nondynamical, and dispersion correlations.</p>
 <p><a href="https://doi.org/10.1063/1.2768530">J. Chem. Phys. 127, 124108 (2007)</a></p>
 <p>To use this correction with the <strong>PBE</strong> functional, you need to set: 
-<div class="highlight"><pre><span></span><code>SEDC_APPLY  = TRUE
-SEDC_SCHEME = XDM
-SEDC_SC_XDM = 1.0 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>SEDC_APPLY  = TRUE
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>SEDC_SCHEME = XDM
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>SEDC_SC_XDM = 1.0 
 </code></pre></div></p>
 <p>where the <code>SEDC_SC_XDM</code> parameter is a global scaling factor. </p>
 <p>For other functionals you need to specify the following additional parameters: </p>
@@ -2190,7 +2190,7 @@ SEDC_SC_XDM = 1.0
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": "-content.code.annotate", "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.3a4b43e5.min.js"></script>

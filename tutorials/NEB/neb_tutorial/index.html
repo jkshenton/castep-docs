@@ -1519,8 +1519,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#restarting" class="md-nav__link">
-    Restarting
+  <a href="#restarting-continuing" class="md-nav__link">
+    Restarting / Continuing
   </a>
   
 </li>
@@ -1690,8 +1690,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#restarting" class="md-nav__link">
-    Restarting
+  <a href="#restarting-continuing" class="md-nav__link">
+    Restarting / Continuing
   </a>
   
 </li>
@@ -1753,38 +1753,38 @@ You can use the method to estimate the barrier for the system to transition betw
 <p>You can find all the files needed for this tutorial here: <a href="../neb_tutorial.tar.gz">neb_tutorial.tar.gz</a></p>
 <h2 id="setting-up-the-structures">Setting up the structures</h2>
 <h3 id="setting-up-the-initial-and-final-states">Setting up the initial and final states</h3>
-<p>These and the local minima structures you want find the barrier between. They can be equivalent structures with e.g. a translation between them or they can be configurations with different energies (in which case your forward and reverse barriers will not be the same!). There are two crucial things to set up <strong>before running the NEB</strong> though:</p>
+<p>These are the local minima structures you want to find the barrier between. They can be equivalent structures with e.g. a translation between them or they can be configurations with different energies (in which case your forward and reverse barriers will not be the same!). There are two crucial things to set up <strong>before running the NEB</strong> though:</p>
 <ol>
 <li>The end point structures must be fully relaxed (geometry optimised) before you start the NEB.</li>
 <li>The atoms must be in the correct order. A very common mistake is to use some third party tool to generate the final state from the initial state and end up with atoms that don't match the initial atom order. When CASTEP then goes to interpolate between the two structures, you end up with atoms "passing through each other", causing the calculation to blow up. Always check that the atoms connect up in the way you expect. </li>
 </ol>
-<p>The initial state is specified in the same way as the normal ionic positions in a .cell file. e.g.:</p>
-<div class="highlight"><pre><span></span><code>%BLOCK positions_frac
-   H              0.500011764912384       0.634846485697942       0.443086003907125
-   H              0.616593728396204       0.432553816946042       0.442828605918639
-   H              0.383248448613152       0.432623959245757       0.443068863520867
-   N              0.500000000000000       0.500000000000000       0.500000000000000
-%ENDBLOCK positions_frac
+<p>The initial state is specified in the same way as the normal ionic positions in a .cell file, e.g.:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>%BLOCK positions_frac
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   H              0.500011764912384       0.634846485697942       0.443086003907125
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>   H              0.616593728396204       0.432553816946042       0.442828605918639
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>   H              0.383248448613152       0.432623959245757       0.443068863520867
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>   N              0.500000000000000       0.500000000000000       0.500000000000000
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>%ENDBLOCK positions_frac
 </code></pre></div>
-<p>The final state is specified using a similar block in the same .cell file but with <code>_product</code> appended to the name. e.g.:</p>
-<div class="highlight"><pre><span></span><code>%BLOCK positions_frac_product
-   H              0.500154169007758       0.634858887961251       0.556834437330747
-   H              0.616661280589956       0.432482046338754       0.556941161085851
-   H              0.383366127862304       0.432719065607707       0.557277918851780
-   N              0.500000000000000       0.500000000000000       0.500000000000000
-%ENDBLOCK positions_frac_product
+<p>The final state is specified using a similar block in the same .cell file but with <code>_product</code> appended to the name of the block, e.g.:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>%BLOCK positions_frac_product
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>   H              0.500154169007758       0.634858887961251       0.556834437330747
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>   H              0.616661280589956       0.432482046338754       0.556941161085851
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>   H              0.383366127862304       0.432719065607707       0.557277918851780
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>   N              0.500000000000000       0.500000000000000       0.500000000000000
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>%ENDBLOCK positions_frac_product
 </code></pre></div>
 <h3 id="setting-up-the-transition-state-guess">Setting up the transition state guess</h3>
 <p>CASTEP will linearly interpolate between the initial and final structures you provide to generate the first guess of the minimum energy pathway.
 This works well in many cases. However, if your minimum energy pathway is likely to contain e.g. a rotation of a (group of) atom(s) around a bond or something similar, then the linear path between initial and final configurations may be a bad starting guess. </p>
 <p>CASTEP allows you to provide <strong>one</strong> intermediate structure between the initial and final configurations in order to help get the NEB on the right track. You can use this to bias your results to one pathway over another, for example. To use this, simply add the position information for this intermediate configuration to the .cell file. e.g.:</p>
-<div class="highlight"><pre><span></span><code>%BLOCK POSITIONS_ABS_INTERMEDIATE
-ang
-N  3.500000  3.500000  3.500000
-H  3.500000  4.443968  3.500000
-H  4.316393  3.027626  3.500000
-H  2.683149  3.028701  3.501215
-%ENDBLOCK POSITIONS_ABS_INTERMEDIATE
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>%BLOCK POSITIONS_ABS_INTERMEDIATE
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>ang
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>N  3.500000  3.500000  3.500000
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>H  3.500000  4.443968  3.500000
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>H  4.316393  3.027626  3.500000
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>H  2.683149  3.028701  3.501215
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>%ENDBLOCK POSITIONS_ABS_INTERMEDIATE
 </code></pre></div>
 <h3 id="how-many-images-do-i-need">How many images do I need?</h3>
 <p>It depends... It's usually easier to start with a small number of images and increase if you need to. </p>
@@ -1801,16 +1801,16 @@ H  2.683149  3.028701  3.501215
 <h3 id="constraints">Constraints</h3>
 <p>In many cases we can dramatically improve the efficiency of the transition state search by imposing some constraints on the ions. However, they must be used with care so as not to introduce artifacts. For example, when looking at NEB barriers for adsorbates on a surface slab, we can constrain the bottom slab layers, but probably want the top layer(s) unconstrained.</p>
 <p>In the ammonia case, clearly we can constrain the N atom in x, y and z without affecting the physical set up. We do this by adding the ionic_constraints block:</p>
-<div class="highlight"><pre><span></span><code>%BLOCK IONIC_CONSTRAINTS
-     1   N   1   1 0 0
-     2   N   1   0 1 0
-     3   N   1   0 0 1
-%ENDBLOCK IONIC_CONSTRAINTS
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>%BLOCK IONIC_CONSTRAINTS
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>     1   N   1   1 0 0
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>     2   N   1   0 1 0
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>     3   N   1   0 0 1
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>%ENDBLOCK IONIC_CONSTRAINTS
 </code></pre></div>
 <p>to the <code>nh3.cell</code> file.</p>
 <p>The NEB part of CASTEP should pick up on the imposed ionic constraint(s) and you'll see something like this:</p>
-<div class="highlight"><pre><span></span><code>  --- Initialising NEB constraints ---
-     Fixed            3  degrees of freedom
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>  --- Initialising NEB constraints ---
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>     Fixed            3  degrees of freedom
 </code></pre></div>
 <p>in the <code>.castep</code> output file.</p>
 <h3 id="do-i-need-climbing-neb">Do I need climbing NEB?</h3>
@@ -1833,13 +1833,14 @@ This is very useful to get accurate barrier estimates, but care must be taken wh
 <ul>
 <li>Not having consistent order in the initial and final structures -&gt; non-physical initial path</li>
 <li>Too many (or too few) images</li>
+<li>Initial or final state (endpoints) not being fully relaxed structures</li>
 </ul>
-<h3 id="restarting">Restarting</h3>
+<h3 id="restarting-continuing">Restarting / Continuing</h3>
 <p>Sometimes the calculation will run out of time/number of iterations before the NEB calculation is finished. 
 You will probably see a "Failed to converge" message in the .castep output in that case; always read through your output files!</p>
 <p>If you simply re-run the calculation without changing anything, it will simply start from the beginning again -- probably not what you want!</p>
 <p>In order restart the NEB from the last checkpointed state, you need to <strong>explicitly</strong> set the name of the .check file you want to continue from. In our example that would be:</p>
-<div class="highlight"><pre><span></span><code>continuation: nh3.check
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>continuation: nh3.check
 </code></pre></div>
 <p>In the .castep output you would then see this message: <code>Coordinates of NEB images loaded from checkpoint file</code>. </p>
 <div class="admonition warning">
@@ -1849,75 +1850,75 @@ You will probably see a "Failed to converge" message in the .castep output in th
 <h2 id="analysis">Analysis</h2>
 <p>Once you have a converged NEB, you can use the provided Python utility: readTS to parse and analyse the NEB. 
 You first need to make sure the readTS module is on your PYTHONPATH. You can do this by going to your CASTEP source directory, and in <code>castep/Utilities/readts</code> you will find a setup.py script. Running <code>python setup.py</code> should install the module to your path. You can also manually add it by: </p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;/path/to/castep/Utilities/readts:</span><span class="nv">$PYTHONPATH</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;/path/to/castep/Utilities/readts:</span><span class="nv">$PYTHONPATH</span><span class="s2">&quot;</span>
 </code></pre></div>
 <p>(changing the <code>/path/to/castep/</code> bit to wherever CASTEP is on your machine!).</p>
 <p>You can then extract the NEB path using something like this python code:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">## get this by adding castep/Utilities/readts to your PYTHONPATH</span>
-<span class="kn">from</span> <span class="nn">readts</span> <span class="kn">import</span> <span class="n">TSFile</span> 
-<span class="kn">from</span> <span class="nn">ase.neb</span> <span class="kn">import</span> <span class="n">NEBTools</span>
-
-
-<span class="k">def</span> <span class="nf">get_images</span><span class="p">(</span><span class="n">tsfile</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">   Function to extract the </span>
-<span class="sd">   final NEB images from a tsfile object</span>
-
-<span class="sd">   Args: </span>
-<span class="sd">        tsfile (TSFile): tsfile object</span>
-
-<span class="sd">   Returns:</span>
-<span class="sd">        images (list): list of ASE atoms objects</span>
-<span class="sd">   &#39;&#39;&#39;</span>
-    <span class="n">diam_tst</span> <span class="o">=</span> <span class="n">tsfile</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="s1">&#39;TST&#39;</span><span class="p">]</span>
-
-    <span class="n">diam_i</span> <span class="o">=</span> <span class="n">tsfile</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="s1">&#39;REA&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">diam_f</span> <span class="o">=</span> <span class="n">tsfile</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="s1">&#39;PRO&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">nbeads</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">diam_tst</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-    <span class="n">max_idx</span> <span class="o">=</span> <span class="n">diam_tst</span><span class="o">.</span><span class="n">last_index</span>
-    <span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">diam_i</span><span class="o">.</span><span class="n">atoms</span><span class="p">]</span>
-    <span class="n">images</span> <span class="o">+=</span> <span class="p">[</span><span class="n">diam_tst</span><span class="p">[</span><span class="n">max_idx</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">atoms</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nbeads</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
-    <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">diam_f</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">images</span>
-
-<span class="k">def</span> <span class="nf">plot_band</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;neb.png&#39;</span><span class="p">):</span>
-    <span class="n">nt</span> <span class="o">=</span> <span class="n">NEBTools</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
-    <span class="n">energies</span> <span class="o">=</span> <span class="n">nt</span><span class="o">.</span><span class="n">get_barrier</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Barrier height:      </span><span class="si">{</span><span class="n">energies</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">16.5f</span><span class="si">}</span><span class="s1"> eV&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;E_final - E_initial: </span><span class="si">{</span><span class="n">energies</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">16.5f</span><span class="si">}</span><span class="s1"> eV&#39;</span><span class="p">)</span>
-    <span class="n">nebplot</span> <span class="o">=</span> <span class="n">nt</span><span class="o">.</span><span class="n">plot_band</span><span class="p">()</span>
-    <span class="n">nebplot</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">sys</span>
-    <span class="n">seedname</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;./&#39;</span>
-    <span class="n">tolerant</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="n">tolerant</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-    <span class="n">tsfile</span> <span class="o">=</span> <span class="n">TSFile</span><span class="p">(</span><span class="n">seedname</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">tolerant</span><span class="o">=</span><span class="n">tolerant</span><span class="p">)</span>
-    <span class="n">images</span> <span class="o">=</span> <span class="n">get_images</span><span class="p">(</span><span class="n">tsfile</span><span class="p">)</span>
-    <span class="n">plot_band</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
-
-    <span class="c1"># we can use ASE to write out the structure </span>
-    <span class="c1"># in whatever format we want</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Image</span><span class="se">\t\t</span><span class="s1"> Energy (eV)&#39;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">atoms</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s1">03d</span><span class="si">}</span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">atoms</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span><span class="si">:</span><span class="s1">16.5f</span><span class="si">}</span><span class="s1"> eV&#39;</span><span class="p">)</span>
-        <span class="c1">## this format includes the energy of the image</span>
-        <span class="n">atoms</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;image-</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s1">03d</span><span class="si">}</span><span class="s1">.xyz&#39;</span><span class="p">)</span> 
-
-
-    <span class="c1">## We can also use the ASE GUI to </span>
-    <span class="c1">## view the images and analyse the NEB path.</span>
-    <span class="c1">## Select Tools -&gt; NEB Plot</span>
-    <span class="c1"># from ase.visualize import view</span>
-    <span class="c1"># view(images)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">## get this by adding castep/Utilities/readts to your PYTHONPATH</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">from</span> <span class="nn">readts</span> <span class="kn">import</span> <span class="n">TSFile</span> 
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kn">from</span> <span class="nn">ase.neb</span> <span class="kn">import</span> <span class="n">NEBTools</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">def</span> <span class="nf">get_images</span><span class="p">(</span><span class="n">tsfile</span><span class="p">):</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="sd">&#39;&#39;&#39;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="sd">   Function to extract the </span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="sd">   final NEB images from a tsfile object</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="sd">   Args: </span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="sd">        tsfile (TSFile): tsfile object</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="sd">   Returns:</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="sd">        images (list): list of ASE atoms objects</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="sd">   &#39;&#39;&#39;</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>    <span class="n">diam_tst</span> <span class="o">=</span> <span class="n">tsfile</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="s1">&#39;TST&#39;</span><span class="p">]</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>    <span class="n">diam_i</span> <span class="o">=</span> <span class="n">tsfile</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="s1">&#39;REA&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>    <span class="n">diam_f</span> <span class="o">=</span> <span class="n">tsfile</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="s1">&#39;PRO&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>    <span class="n">nbeads</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">diam_tst</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>    <span class="n">max_idx</span> <span class="o">=</span> <span class="n">diam_tst</span><span class="o">.</span><span class="n">last_index</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>    <span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">diam_i</span><span class="o">.</span><span class="n">atoms</span><span class="p">]</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>    <span class="n">images</span> <span class="o">+=</span> <span class="p">[</span><span class="n">diam_tst</span><span class="p">[</span><span class="n">max_idx</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">atoms</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nbeads</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>    <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">diam_f</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>    <span class="k">return</span> <span class="n">images</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="k">def</span> <span class="nf">plot_band</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;neb.png&#39;</span><span class="p">):</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>    <span class="n">nt</span> <span class="o">=</span> <span class="n">NEBTools</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>    <span class="n">energies</span> <span class="o">=</span> <span class="n">nt</span><span class="o">.</span><span class="n">get_barrier</span><span class="p">()</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Barrier height:      </span><span class="si">{</span><span class="n">energies</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">16.5f</span><span class="si">}</span><span class="s1"> eV&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;E_final - E_initial: </span><span class="si">{</span><span class="n">energies</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">16.5f</span><span class="si">}</span><span class="s1"> eV&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>    <span class="n">nebplot</span> <span class="o">=</span> <span class="n">nt</span><span class="o">.</span><span class="n">plot_band</span><span class="p">()</span>
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>    <span class="n">nebplot</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>
+<a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>
+<a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a>
+<a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>    <span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>    <span class="n">seedname</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;./&#39;</span>
+<a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>    <span class="n">tolerant</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a>        <span class="n">tolerant</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a>    <span class="n">tsfile</span> <span class="o">=</span> <span class="n">TSFile</span><span class="p">(</span><span class="n">seedname</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">tolerant</span><span class="o">=</span><span class="n">tolerant</span><span class="p">)</span>
+<a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a>    <span class="n">images</span> <span class="o">=</span> <span class="n">get_images</span><span class="p">(</span><span class="n">tsfile</span><span class="p">)</span>
+<a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a>    <span class="n">plot_band</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+<a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a>
+<a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a>    <span class="c1"># we can use ASE to write out the structure </span>
+<a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a>    <span class="c1"># in whatever format we want</span>
+<a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Image</span><span class="se">\t\t</span><span class="s1"> Energy (eV)&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">atoms</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
+<a id="__codelineno-7-53" name="__codelineno-7-53" href="#__codelineno-7-53"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s1">03d</span><span class="si">}</span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">atoms</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span><span class="si">:</span><span class="s1">16.5f</span><span class="si">}</span><span class="s1"> eV&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-54" name="__codelineno-7-54" href="#__codelineno-7-54"></a>        <span class="c1">## this format includes the energy of the image</span>
+<a id="__codelineno-7-55" name="__codelineno-7-55" href="#__codelineno-7-55"></a>        <span class="n">atoms</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;image-</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s1">03d</span><span class="si">}</span><span class="s1">.xyz&#39;</span><span class="p">)</span> 
+<a id="__codelineno-7-56" name="__codelineno-7-56" href="#__codelineno-7-56"></a>
+<a id="__codelineno-7-57" name="__codelineno-7-57" href="#__codelineno-7-57"></a>
+<a id="__codelineno-7-58" name="__codelineno-7-58" href="#__codelineno-7-58"></a>    <span class="c1">## We can also use the ASE GUI to </span>
+<a id="__codelineno-7-59" name="__codelineno-7-59" href="#__codelineno-7-59"></a>    <span class="c1">## view the images and analyse the NEB path.</span>
+<a id="__codelineno-7-60" name="__codelineno-7-60" href="#__codelineno-7-60"></a>    <span class="c1">## Select Tools -&gt; NEB Plot</span>
+<a id="__codelineno-7-61" name="__codelineno-7-61" href="#__codelineno-7-61"></a>    <span class="c1"># from ase.visualize import view</span>
+<a id="__codelineno-7-62" name="__codelineno-7-62" href="#__codelineno-7-62"></a>    <span class="c1"># view(images)</span>
 </code></pre></div>
 <p>If we save this script as analysis.py and run it in the directory containing both the nh3.cell and nh3.ts files like this:</p>
-<div class="highlight"><pre><span></span><code>python analysis.py nh3
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>python analysis.py nh3
 </code></pre></div>
 <p>we will get an .xyz file for each structure in the optimised NEB path and the energy of each image. We will also get the barrier estimate and a NEB plot showing the barrier.</p>
 <p>The ASE GUI can also be used to plot the NEB band (uncomment the last two lines in the above script and Select Tools → NEB Plot from the GUI). </p>
@@ -1930,7 +1931,7 @@ You first need to make sure the readTS module is on your PYTHONPATH. You can do 
 <h3 id="zero-point-energy-corrections">Zero-point energy corrections</h3>
 <p>In many cases, particularly when lighter atoms are involved, the energy barrier estimates obtained above need to be corrected for quantum-nuclear effects. </p>
 <p>The simplest way to do this is in the harmonic approximation. You need to estimate the harmonic zero-point energy at the start, transition and final configurations.</p>
-<p>For the particular case (ammonia) we have been looking at, it turns out to actually explain the observed transition rate between the two 'umbrella' configurations, we need to go beyond the harmonic approximation. [REF]</p>
+<p>For the particular case (ammonia) we have been looking at, it turns out that to actually explain the observed transition rate between the two 'umbrella' configurations, we need to go beyond the harmonic approximation (<a href="https://en.wikipedia.org/wiki/Pyramidal_inversion#Quantum_effects">see Wikipedia</a>).</p>
 <p>TODO: add instructions for harmonic ZPE corrections.</p>
 
               
@@ -1982,7 +1983,7 @@ You first need to make sure the readTS module is on your PYTHONPATH. You can do 
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": "-content.code.annotate", "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.3a4b43e5.min.js"></script>

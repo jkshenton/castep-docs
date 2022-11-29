@@ -1468,17 +1468,17 @@
 
 <p>CASTEP has two main input files, called <a href="../basic_cell_file/">the cell file</a> and <a href="../basic_param_file/">the param file</a>. The cell file defines the structure of the material (or molecule) you wish to study, and the param file defines the kind of simulation CASTEP should perform.</p>
 <p>The cell and param files should be named using the same prefix, which CASTEP calls the "seedname", with the extensions <code>.cell</code> and <code>.param</code>, respectively. For example, for a calculation called <code>mytest</code>, you need the input files
-<div class="highlight"><pre><span></span><code>mytest.cell
-mytest.param
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mytest.cell
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>mytest.param
 </code></pre></div>
 and the calculation is run with the command
-<div class="highlight"><pre><span></span><code>castep mytest
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>castep mytest
 </code></pre></div>
 The main CASTEP output file will be names using the same seedname and the <code>.castep</code> extension, i.e. in the above example it would be called <code>mytest.castep</code>. If this file already exists, CASTEP will append its output to it.</p>
 <p>When CASTEP completes successfully, it writes additional files such as the <code>.bib</code> file, which contains references to key papers for the theory and methods CASTEP used.</p>
 <p>If CASTEP encounters a serious problem, it will stop and write an error message to a <code>.err</code> file. If you are using the parallel version of CASTEP on many cores, you may see error files from each of these cores. They are named using the same seedname, but with the numeric process ID added, e.g. if CASTEP is run on 2 cores and a serious problem occurs, you might see the files
-<div class="highlight"><pre><span></span><code>mytest.0001.err
-mytest.0002.err
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mytest.0001.err
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>mytest.0002.err
 </code></pre></div>
 These files contain useful information about what went wrong, so it is always worth looking at them. See the <a href="/documentation/Troubleshooting/troubleshooting.md">Troubleshooting Guide</a> for details of how to find and fix common problems.</p>
 
@@ -1546,7 +1546,7 @@ These files contain useful information about what went wrong, so it is always wo
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": "-content.code.annotate", "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.3a4b43e5.min.js"></script>
