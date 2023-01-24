@@ -124,74 +124,73 @@ in the `.castep` output file.
 
 ### Do I need climbing NEB?
 
-The climbing NEB method modifies the force on the highest-energy image (usually close to the middle of the band) such that it tries to climb *up* the barrier. 
-This is very useful to get accurate barrier estimates, but care must be taken when more complex pathways (i.e. with multiple maxima) are found.
+The climbing NEB method modifies the force on the highest-energy image (usually close to the middle of the band) *[? What's a band?]* such that it tries to climb *up* the barrier. 
+This is very useful to get accurate barrier estimates, but care must be taken when more complex pathways (i.e. with multiple maxima) are found.  *[Don't get this!]*
 
 In our example the path is quite straightforward and it makes sense to use the climbing image method. We therefore set:
 
 `TSSEARCH_NEB_CLIMBING: TRUE`
 
-in the .param file.
+in the .param file. *[This is the default surely? Perhaps clearer in main documentation giving an example of when you *would* set False]* 
 
 
 ## Running the NEB
 
 ### Parallelisation
-Because the NEB calculation essentially runs N parallel CASTEP calculations (where N is the number of images), we can make very efficient use of the high-performance computers. The way to do this is via "task farming". The idea is to first parallelise the NEB calculation over the N images evenly and only then to employ other forms of parallelisation (e.g. over k-point and bands) within each image. 
-
-For example, if one CASTEP calculation fits on one node, and you have 7 images, then you could run on a total of 7 nodes and set the keywords:
+Because the NEB calculation essentially involves *N* independent CASTEP calculations (where *N* is the number of images), we can make very efficient use of high-performance computers. This is done via "task farming", running the calculations for the *N* images independently. For example, if one CASTEP calculation fits on one node, and you have 7 images, then you could run on a total of 7 nodes by setting the keyword:
 
 `NUM_FARMS: 7`
 
 in the .param file. 
 
-In general, setting `NUM_FARMS` to the number of NEB images will lead to good performance, provided the available computing resources can be split neatly by this number.
+In general, setting `NUM_FARMS` to the number of NEB images will lead to good performance, provided the available computing resources can be split neatly by this number.  *[Don't follow the last phrase. Surely all you need are 7 nodes?]*
 
-You will notice that if you enable task farming, the seedname.castep output file will look relatively empty. Instead, the main output is split into the different task farm .castep files. The first indexed one contains the most important information (for example that's where you would grep for "Max NEB force") and will be called e.g. `seedname_farm001.castep`. 
+You will notice that if you enable task farming, the seedname.castep output file will look relatively empty, as most output is split into the different task farm .castep files. The first indexed one contains the most important information (for example, the "Max NEB force") and will be called e.g. `seedname_farm001.castep`. 
 
 
 ### Is the calculation converging?
-You can monitor the convergence by grepping for "Max NEB force" within the .castep output file.
+You can monitor the convergence by searching for "Max NEB force" within the .castep output file.
 
 Common convergence issues include:
 
-- Not having consistent order in the initial and final structures -> non-physical initial path
-- Too many (or too few) images
+- Not having consistent order in the initial and final structures, i.e. non-physical initial path
+- Too many (or too few) images  *[As above - not clear what this means, so looks odd.]*
 - Initial or final state (endpoints) not being fully relaxed structures
 
 ### Restarting / Continuing 
 
 Sometimes the calculation will run out of time/number of iterations before the NEB calculation is finished. 
 You will probably see a "Failed to converge" message in the .castep output in that case; always read through your output files!
+*[Not obvious in .ts file? Shouldn't need to positively check for unconverged results.]*
 
-If you simply re-run the calculation without changing anything, it will simply start from the beginning again -- probably not what you want!
+If you re-run the calculation without changing anything, it will simply start from the beginning again -- probably not what you want!
 
-In order restart the NEB from the last checkpointed state, you need to **explicitly** set the name of the .check file you want to continue from. In our example that would be:
+In order restart the NEB from the last checkpointed state, you need to **explicitly** set the name of the .check file you want to continue from. *[In .param?]* In our example that would be:
 
 ```
 continuation: nh3.check
 ```
 
-In the .castep output you would then see this message: `Coordinates of NEB images loaded from checkpoint file`. 
+In the .castep output you would then see: `Coordinates of NEB images loaded from checkpoint file`. 
 
 !!! warning
-      Unlike other parts of CASTEP, setting `continuation: default` does not seem to work for continuing/restarting NEB calculations! You must explicitly set the name of checkpoint file.
+      Unlike other CASTEP tasks, setting `continuation: default` does not seem to work for continuing/restarting NEB calculations! You must explicitly set the name of checkpoint file.
 
 
 
 
 ## Analysis
 
-Once you have a converged NEB, you can use the provided Python utility: readTS to parse and analyse the NEB. 
-You first need to make sure the readTS module is on your PYTHONPATH. You can do this by going to your CASTEP source directory, and in `castep/Utilities/readts` you will find a setup.py script. Running `python setup.py` should install the module to your path. You can also manually add it by: 
+Once you have a converged NEB, the provided Python utility `readTS` can be used to parse and analyse the NEB. 
+To add the readTS module to your PYTHONPATH, you can find a setup.py script in the `castep/Utilities/readts` directory of your CASTEP source directory. Running `python setup.py` should install the module to your path. You can also manually add it by: *[Add to what? .bashrc or current (bash) console?]* 
 
 ``` bash
 export PYTHONPATH="/path/to/castep/Utilities/readts:$PYTHONPATH"
 ```
 
-(changing the `/path/to/castep/` bit to wherever CASTEP is on your machine!).
+(changing the `/path/to/castep/` bit to wherever CASTEP is on your machine).
 
-You can then extract the NEB path using something like this python code:
+You can then extract the NEB path using something like this python code:  *[This looks sufficiently general that you could supply the analysis.py script?]*
 
 ```python
 ## get this by adding castep/Utilities/readts to your PYTHONPATH
@@ -273,11 +272,14 @@ The ASE-generated plot looks like this:
 
 ![NEB Plot](../../img/neb.png)
 
+*[Do the green lines have any significance?]*
+
 The barrier we obtained is about 0.23 eV, which compares well with the value of 0.25 eV (24.2 kJ/mol) [from Wikipedia](https://en.wikipedia.org/wiki/Pyramidal_inversion#Energy_barrier).
 
 We might also notice the slight difference in energy between the two end-points of the path (about 1 meV). These should be identical, so any difference can be used as a very rough guide for the amount of numerical noise in the geometry optimisations.
+*[Surely this is more about the initial calculations rather than the NEB? Is this noise figure useful?]*
 
-Using our favourite visualisation software, we can then look at how the structure evolves along the minimum energy pathway found via the NEB.
+Using our favourite visualisation software *[say what used here?]*, we can then look at how the structure evolves along the minimum energy pathway found via the NEB.
 
 ![NEB structures](../../img/nh3_neb.gif)
 
@@ -287,6 +289,6 @@ In many cases, particularly when lighter atoms are involved, the energy barrier 
  
 The simplest way to do this is in the harmonic approximation. You need to estimate the harmonic zero-point energy at the start, transition and final configurations.
 
-For the particular case (ammonia) we have been looking at, it turns out that to actually explain the observed transition rate between the two 'umbrella' configurations, we need to go beyond the harmonic approximation ([see Wikipedia](https://en.wikipedia.org/wiki/Pyramidal_inversion#Quantum_effects)).
+For the particular case (ammonia) we have been looking at, it turns out that to actually explain the observed transition rate between the two 'umbrella' configurations, we need to go beyond the harmonic approximation ([see Wikipedia](https://en.wikipedia.org/wiki/Pyramidal_inversion#Quantum_effects)).  *[This is a bit obscure. Is it important for tutorial?]*
 
 TODO: add instructions for harmonic ZPE corrections.
