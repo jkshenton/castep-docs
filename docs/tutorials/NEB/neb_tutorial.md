@@ -6,7 +6,7 @@
 The nudged elastic band (NEB) approach is a widely-used method for finding a minimum energy pathway between two configurations of atoms. 
 You can use the method to estimate the barrier for the system to transition between the two structures. 
 
-The technique starts with two fixed end points which are fully relaxed (local) minima: the initial and final configurations. It then connects these end points with a series of "images" via fictitious springs that "pull" the structures taught over one or more intermediate transition states. 
+The technique starts with two fixed end points which are fully relaxed (local) minima: the initial and final configurations. It then connects these end points with a series of "images" via fictitious springs that "pull" the structures taut over one or more intermediate transition states. 
 
 In this tutorial, we will use the well-known example of an ammonia molecule's [pyramidal inversion](https://en.wikipedia.org/wiki/Pyramidal_inversion#Energy_barrier)
 
@@ -29,13 +29,13 @@ You can find all the files needed for this tutorial here: [neb_tutorial.tar.gz](
 ## Setting up the structures
 
 ### Setting up the initial and final states
-These are the local minima structures you want to find the barrier between. They can be equivalent structures with e.g. a translation between them or they can be configurations with different energies (in which case your forward and reverse barriers will not be the same!). There are two crucial things to set up **before running the NEB** though:
+These are the local minima structures you want to find the barrier between. They can be equivalent structures, e.g. differing by a symmetry operation, such reflection through a mirror plane, or they can be configurations with different energies (in which case your forward and reverse barriers will not be the same!). Two crucial conditions must be met **before running the NEB calculation**:
 
-1. The end point structures must be fully relaxed (geometry optimised) before you start the NEB.
-2. The atoms must be in the correct order. A very common mistake is to use some third party tool to generate the final state from the initial state and end up with atoms that don't match the initial atom order. When CASTEP then goes to interpolate between the two structures, you end up with atoms "passing through each other", causing the calculation to blow up. Always check that the atoms connect up in the way you expect. 
+1. The end point structures *[and any intermediates?]* must be fully relaxed (geometry optimised) *[using the same parameters as NEB presumably]* before you start the NEB.
+2. The atoms must be in the correct order. A common mistake is to use a software tool to generate the final state from the initial state and end up with atoms that don't match the initial atom order. Atoms then "pass through each other" when CASTEP interpolates between the two structures, causing the calculation to blow up. Always check that the atoms connect up in the way you expect. 
 
 
-The initial state is specified in the same way as the normal ionic positions in a .cell file, e.g.:
+The initial state is specified in the same way as a normal .cell file, e.g.:
 
 ```
 %BLOCK positions_frac
@@ -60,10 +60,10 @@ The final state is specified using a similar block in the same .cell file but wi
 
 
 ### Setting up the transition state guess
-CASTEP will linearly interpolate between the initial and final structures you provide to generate the first guess of the minimum energy pathway.
-This works well in many cases. However, if your minimum energy pathway is likely to contain e.g. a rotation of a (group of) atom(s) around a bond or something similar, then the linear path between initial and final configurations may be a bad starting guess. 
+CASTEP will linearly interpolate between the initial and final structures provided to generate the first guess of the minimum energy pathway.
+This works well in many cases. However, if your minimum energy pathway contains e.g. a rotation of a (group of) atom(s) around a bond or something similar, then the linear path between initial and final configurations may be a bad starting guess. *[Not clear to me what a bad starting guess means - presumably if the interpolated intermediate is too high in energy, things will go wrong? Obviously a C2 rotation can't be interpolated, but a small rotation, perhaps C4 might be fine?]* Intermediate structures can also be used to bias your results to one pathway over another.
 
-CASTEP allows you to provide **one** intermediate structure between the initial and final configurations in order to help get the NEB on the right track. You can use this to bias your results to one pathway over another, for example. To use this, simply add the position information for this intermediate configuration to the .cell file. e.g.:
+CASTEP allows you to provide **one** intermediate structure between the initial and final configurations in order to get the NEB on the right track. The intermediate configuration is added using, e.g.:
 
 ```
 %BLOCK POSITIONS_ABS_INTERMEDIATE
@@ -79,11 +79,11 @@ H  2.683149  3.028701  3.501215
 
 ### How many images do I need?
 
-It depends... It's usually easier to start with a small number of images and increase if you need to. 
+It depends... It's usually easier to start with a small number of images and increase if you need to. *[A bit vague.]*
 
-Using many (i.e. > 15) will result in slow convergence, but may lead to a more accurate minimum energy pathway. 
+Using many (i.e. > 15) will result in slow convergence, but may lead to a more accurate minimum energy pathway. *[Presumably more images will never give a worse result? Would it be better expressed in terms of a rule of thumb e.g. 10 x the number of expected transition states?]*
 
-Using too few (i.e. < 5) might fail to find the minimum energy pathway. 
+Using too few (i.e. < 5) might fail to find the minimum energy pathway. *[Not clear to me what this means. Partly because I don't have a clear idea of what the "spacing" between images means.]*
 
 Some questions to help answer how many images you need:
 
@@ -91,14 +91,14 @@ Some questions to help answer how many images you need:
 
 
 !!! note 
-      The number of images is the number of structures between the end points. The total number of structures in the path (i.e. including the end points) will therefore be the number of images + 2.
+      The number of images is the number of structures *between* the end points. The total number of structures in the path (i.e. including the end points) is therefore the number of images + 2.
 
 
 ### Constraints
 
-In many cases we can dramatically improve the efficiency of the transition state search by imposing some constraints on the ions. However, they must be used with care so as not to introduce artifacts. For example, when looking at NEB barriers for adsorbates on a surface slab, we can constrain the bottom slab layers, but probably want the top layer(s) unconstrained.
+We can often dramatically improve the efficiency of the transition state search by imposing constraints on the atomic positions, although this must be done with care so as not to introduce artifacts. For example, when looking at NEB barriers for adsorbates on a surface slab, we can usefully constrain the bottom slab layers, but probably want the top layer(s) unconstrained.
 
-In the ammonia case, clearly we can constrain the N atom in x, y and z without affecting the physical set up. We do this by adding the ionic_constraints block:
+In the ammonia case, we can constrain the N atom position without affecting the physical set up by adding the block:
 
 ``` 
 %BLOCK IONIC_CONSTRAINTS
@@ -108,11 +108,10 @@ In the ammonia case, clearly we can constrain the N atom in x, y and z without a
 %ENDBLOCK IONIC_CONSTRAINTS
 ```
 
-to the `nh3.cell` file.
+to the `nh3.cell` file.  *[Isn't there a more compact way now to specify a fixed atom?]*
 
 
-
-The NEB part of CASTEP should pick up on the imposed ionic constraint(s) and you'll see something like this:
+You should then see something like:
 
 ```
   --- Initialising NEB constraints ---
@@ -121,6 +120,7 @@ The NEB part of CASTEP should pick up on the imposed ionic constraint(s) and you
  
 in the `.castep` output file.
 
+*[Shouldn't this be referenced in the main documentation, as it looks like a specific feature of the NEB code?]*
 
 ### Do I need climbing NEB?
 
