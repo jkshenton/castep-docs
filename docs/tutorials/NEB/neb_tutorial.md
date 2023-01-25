@@ -124,7 +124,7 @@ in the `.castep` output file.
 
 ### Do I need climbing NEB?
 
-The climbing NEB method modifies the force on the highest-energy image (usually close to the middle of the band) *[? What's a band?]* such that it tries to climb *up* the barrier. 
+The climbing NEB method modifies the force on the highest-energy image such that it tries to climb *up* the barrier. 
 This is very useful to get accurate barrier estimates, but care must be taken when more complex pathways (i.e. with multiple maxima) are found.  *[Don't get this!]*
 
 In our example the path is quite straightforward and it makes sense to use the climbing image method. We therefore set:
