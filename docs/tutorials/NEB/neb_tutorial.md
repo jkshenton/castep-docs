@@ -165,7 +165,7 @@ You will probably see a "Failed to converge" message in the .castep output in th
 
 If you re-run the calculation without changing anything, it will simply start from the beginning again -- probably not what you want!
 
-In order restart the NEB from the last checkpointed state, you need to **explicitly** set the name of the .check file you want to continue from. *[In .param?]* In our example that would be:
+In order restart the NEB from the last checkpointed state, you need to **explicitly** set the name of the .check file you want to continue from in your .param file. In our example that would be:
 
 ```
 continuation: nh3.check
