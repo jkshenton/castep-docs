@@ -31,7 +31,7 @@ You can find all the files needed for this tutorial here: [neb_tutorial.tar.gz](
 ### Setting up the initial and final states
 These are the local minima structures you want to find the barrier between. They can be equivalent structures, e.g. differing by a symmetry operation, such reflection through a mirror plane, or they can be configurations with different energies (in which case your forward and reverse barriers will not be the same!). Two crucial conditions must be met **before running the NEB calculation**:
 
-1. The end point structures *[and any intermediates?]* must be fully relaxed (geometry optimised) *[using the same parameters as NEB presumably]* before you start the NEB.
+1. The end point structures must be fully relaxed (geometry optimised) before you start the NEB. Note that both the initial relaxations and the actual NEB calculation must use consistent parameters (e.g. basis set, pseudopotentials, k-points, XC functional etc.).
 2. The atoms must be in the correct order. A common mistake is to use a software tool to generate the final state from the initial state and end up with atoms that don't match the initial atom order. Atoms then "pass through each other" when CASTEP interpolates between the two structures, causing the calculation to blow up. Always check that the atoms connect up in the way you expect. 
 
 
