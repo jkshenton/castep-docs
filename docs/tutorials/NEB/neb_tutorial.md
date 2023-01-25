@@ -81,7 +81,7 @@ H  2.683149  3.028701  3.501215
 
 It depends... It's usually easier to start with a small number of images and increase if you need to. *[A bit vague.]*
 
-Using many (i.e. > 15) will result in slow convergence, but may lead to a more accurate minimum energy pathway. *[Presumably more images will never give a worse result? Would it be better expressed in terms of a rule of thumb e.g. 10 x the number of expected transition states?]*
+Using many (i.e. > 15) will result in slow convergence, but may lead to a more accurate minimum energy pathway for complex barriers. If you do find a particularly complex pathway, however, you might be better off splitting the work up into more than one NEB calculation, each with fewer images. Just remember to always fully relax the end points (even if the end point is a meta-stable local minimum)!  
 
 Using too few (i.e. < 5) might fail to find the minimum energy pathway. *[Not clear to me what this means. Partly because I don't have a clear idea of what the "spacing" between images means.]*
 
