@@ -61,7 +61,9 @@ The final state is specified using a similar block in the same .cell file but wi
 
 ### Setting up the transition state guess
 CASTEP will linearly interpolate between the initial and final structures provided to generate the first guess of the minimum energy pathway.
-This works well in many cases. However, if your minimum energy pathway contains e.g. a rotation of a (group of) atom(s) around a bond or something similar, then the linear path between initial and final configurations may be a bad starting guess. *[Not clear to me what a bad starting guess means - presumably if the interpolated intermediate is too high in energy, things will go wrong? Obviously a C2 rotation can't be interpolated, but a small rotation, perhaps C4 might be fine?]* Intermediate structures can also be used to bias your results to one pathway over another.
+This works well in many cases. However, if your minimum energy pathway contains e.g. a rotation of a (group of) atom(s) around a bond or something similar, then the linear path between initial and final configurations may be a bad starting guess/non-physical structure. For example, if your end points correspond to a C2 rotation, then a linearly interpolated intermediate structure would not be a physical one. It's important to visualise or otherwise check all of your structures before running a calculation.
+
+Intermediate structures can also be chosen in such a way as to bias your results to one pathway over another.
 
 CASTEP allows you to provide **one** intermediate structure between the initial and final configurations in order to get the NEB on the right track. The intermediate configuration is added using, e.g.:
 
