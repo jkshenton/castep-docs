@@ -87,7 +87,9 @@ In addition, if you start with too many images then you might never get close to
 
 Using many (i.e. > 15) will result in slow convergence, but may lead to a more accurate minimum energy pathway for complex barriers. If you do find a particularly complex pathway, however, you might be better off splitting the work up into more than one NEB calculation, each with fewer images. Just remember to always fully relax the end points (even if the end point is a meta-stable local minimum)!  
 
-Using too few (i.e. < 5) might fail to find the minimum energy pathway. *[Not clear to me what this means. Partly because I don't have a clear idea of what the "spacing" between images means.]*
+Using too few (i.e. < 5) might fail to find the minimum energy pathway if the energy landscape is complex.
+
+TODO: add guidance on odd vs even number of images (touching on how the spacing is calculated) and on how many you need for this simple example -- maybe an exercise for the user? You can actually get the same barrier height with just one image in this simple case! 
 
 Some questions to help answer how many images you need:
 
