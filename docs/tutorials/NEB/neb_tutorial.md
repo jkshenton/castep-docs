@@ -126,7 +126,6 @@ You should then see something like:
  
 in the `.castep` output file.
 
-*[Shouldn't this be referenced in the main documentation, as it looks like a specific feature of the NEB code?]*
 
 ### Do I need climbing NEB?
 
