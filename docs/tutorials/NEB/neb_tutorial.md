@@ -278,7 +278,7 @@ The ASE-generated plot looks like this:
 
 ![NEB Plot](../../img/neb.png)
 
-*[Do the green lines have any significance?]*
+The green lines show the tangents at those points; these can be useful indicators of convergence. 
 
 The barrier we obtained is about 0.23 eV, which compares well with the value of 0.25 eV (24.2 kJ/mol) [from Wikipedia](https://en.wikipedia.org/wiki/Pyramidal_inversion#Energy_barrier).
 
