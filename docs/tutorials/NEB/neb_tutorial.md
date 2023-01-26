@@ -283,7 +283,7 @@ The green lines show the tangents at those points; these can be useful indicator
 The barrier we obtained is about 0.23 eV, which compares well with the value of 0.25 eV (24.2 kJ/mol) [from Wikipedia](https://en.wikipedia.org/wiki/Pyramidal_inversion#Energy_barrier).
 
 We might also notice the slight difference in energy between the two end-points of the path (about 1 meV). These should be identical, so any difference can be used as a very rough guide for the amount of numerical noise in the geometry optimisations.
-*[Surely this is more about the initial calculations rather than the NEB? Is this noise figure useful?]*
+If equivalent structures (the end-points in this example) were found to have very different energies, you would need to go back and tighten up your convergence criteria or force/energy tolerances in the initial geometry optimisations and re-run the NEB calculation with these tightened parameters. 
 
 Using our favourite visualisation software *[say what used here?]*, we can then look at how the structure evolves along the minimum energy pathway found via the NEB.
 
