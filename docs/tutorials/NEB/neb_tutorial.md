@@ -306,6 +306,6 @@ In many cases, particularly when lighter atoms are involved, the energy barrier 
  
 The simplest way to do this is in the harmonic approximation. You need to estimate the harmonic zero-point energy at the start, transition and final configurations.
 
-For the particular case (ammonia) we have been looking at, it turns out that to actually explain the observed transition rate between the two 'umbrella' configurations, we need to go beyond the harmonic approximation ([see Wikipedia](https://en.wikipedia.org/wiki/Pyramidal_inversion#Quantum_effects)).  *[This is a bit obscure. Is it important for tutorial?]*
+TODO: replace the section on zero-point energy corrections by a note that highlights that the NEB will provide a Delta E (this is exact), while the transition rates will depend on Delta E_0.
 
 TODO: add instructions for harmonic ZPE corrections.
