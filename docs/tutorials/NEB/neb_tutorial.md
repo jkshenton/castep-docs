@@ -296,7 +296,7 @@ The barrier we obtained is about 0.23 eV, which compares well with the value of 
 We might also notice the slight difference in energy between the two end-points of the path (about 1 meV). These should be identical, so any difference can be used as a very rough guide for the amount of numerical noise in the geometry optimisations.
 If equivalent structures (the end-points in this example) were found to have very different energies, you would need to go back and tighten up your convergence criteria or force/energy tolerances in the initial geometry optimisations and re-run the NEB calculation with these tightened parameters. 
 
-Using our favourite visualisation software *[say what used here?]*, we can then look at how the structure evolves along the minimum energy pathway found via the NEB.
+Using our favourite visualisation software (here we used the [ASE POV-Ray interface](https://wiki.fysik.dtu.dk/ase/ase/io/io.html#examples)), we can then look at how the structure evolves along the minimum energy pathway found via the NEB.
 
 ![NEB structures](../../img/nh3_neb.gif)
 
