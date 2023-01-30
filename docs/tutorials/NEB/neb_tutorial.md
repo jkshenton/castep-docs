@@ -136,7 +136,11 @@ In our example the path is quite straightforward and it makes sense to use the c
 
 `TSSEARCH_NEB_CLIMBING: TRUE`
 
-in the .param file. *[This is the default surely? Perhaps clearer in main documentation giving an example of when you *would* set False]* 
+in the .param file.
+
+TODO: clarify what happens when you set climbing to true.  
+
+TODO: include advice/explanation about starting with regular NEB and turning on climbing image after a few steps. 
 
 
 ## Running the NEB
