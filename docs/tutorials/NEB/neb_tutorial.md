@@ -199,7 +199,7 @@ In the .castep output you would then see: `Coordinates of NEB images loaded from
 ## Analysis
 
 Once you have a converged NEB, the provided Python utility `readTS` can be used to parse and analyse the NEB. 
-To add the readTS module to your PYTHONPATH, you can find a setup.py script in the `castep/Utilities/readts` directory of your CASTEP source directory. Running `python setup.py` should install the module to your path. You can also manually add it by: *[Add to what? .bashrc or current (bash) console?]* 
+To add the readTS module to your PYTHONPATH, you can find a setup.py script in the `castep/Utilities/readts` directory of your CASTEP source directory. Running `python setup.py` should install the module to your path. You can also manually add it by inserting the following line into your ~/.bashrc or equivalent and restarting the terminal: 
 
 ``` bash
 export PYTHONPATH="/path/to/castep/Utilities/readts:$PYTHONPATH"
