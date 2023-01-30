@@ -148,7 +148,15 @@ Because the NEB calculation essentially involves *N* independent CASTEP calculat
 
 in the .param file. 
 
-In general, setting `NUM_FARMS` to the number of NEB images will lead to good performance, provided the available computing resources can be split neatly by this number.  *[Don't follow the last phrase. Surely all you need are 7 nodes?]*
+A good rule of thumb is to aim for `NUM_FARMS` = number of NEB images. That way each 'farm' is responsible for one NEB image. Since each farm will effectively run a series of single-point calculations on each NEB image they are responsible for, the compute resources of that farm should be appropriately sized for such calculations. Too small and you could get an out-of-memory error, too large and you might end up over-parallelising, leading to reduced overall performance. i.e. you should aim to run on a total of `NUM_FARMS` times as many cores as you would use for a single-point calculation on one of the structures.  
+
+This also assumes that your available compute resources can be neatly split into `NUM_FARMS`. The easy case is when each farm can run on a single node; i.e. `NUM_FARMS` = number of NEB images = number of nodes. Note that the total number of cores available must be divisible by `NUM_FARMS`. 
+
+If you choose `NUM_FARMS` < number of images, each of the images will run sequentially on one farm as soon as that farm becomes available. If the number of images is not a multiple of `NUM_FARMS`, some farms will end up being responsible for more images than others, leading poor overall efficiency.
+
+If you choose `NUM_FARMS` > number of images, then some farms will be left with nothing to do, resulting in poor overall efficiency.
+
+Setting `NUM_FARMS = 1` is equivalent to not setting `NUM_FARMS`.
 
 You will notice that if you enable task farming, the seedname.castep output file will look relatively empty, as most output is split into the different task farm .castep files. The first indexed one contains the most important information (for example, the "Max NEB force") and will be called e.g. `seedname_farm001.castep`. 
 
